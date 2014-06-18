@@ -49,7 +49,7 @@ Attributes
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['mysqld']['cnf']['root_pwd']</tt></td>
+    <td><tt>['mysqld']['root_pwd']</tt></td>
     <td>String</td>
     <td>root Password</td>
     <td><tt>vagrant</tt></td>
@@ -215,6 +215,8 @@ Attributes
 
 Usage
 -----
+
+after download / git clone, copy contains cookbooks to your chef repo's site-cookbooks directory.
 
 #### nodes/{your_hostname}.json
 
