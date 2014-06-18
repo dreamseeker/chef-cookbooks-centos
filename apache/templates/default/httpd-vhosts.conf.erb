@@ -1,0 +1,12 @@
+NameVirtualHost *:80
+
+# ------------------------------------------------
+#	sample
+# ------------------------------------------------
+<VirtualHost *:80>
+	ServerName test.domain
+	DocumentRoot /var/www/html/test.domain
+	DirectoryIndex index.php index.cgi index.html
+	CustomLog logs/test.domain-access_log combined
+	ErrorLog logs/test.domain-error_log
+</VirtualHost>

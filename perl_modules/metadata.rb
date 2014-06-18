@@ -1,0 +1,5 @@
+name             'perl_modules'
+maintainer       'TORU KOKUBUN'
+license          'MIT'
+description      'Installs/Configures Perl Modules'
+version          '0.1.0'

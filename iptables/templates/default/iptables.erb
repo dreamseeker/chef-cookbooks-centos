@@ -1,0 +1,36 @@
+# ------------------------------------
+# iptables 設定
+# 参考：http://easyramble.com/change-ssh-port-number.html
+# ------------------------------------
+*filter
+:INPUT   DROP [0:0]
+:FORWARD DROP [0:0]
+:OUTPUT  ACCEPT [0:0]
+
+# ループバックを許可
+-A INPUT -i lo -j ACCEPT
+
+# pingやtcp, udpの通信結果に使われるプロトコルicmpのパケット受信を許可
+-A INPUT -p icmp --icmp-type any -j ACCEPT
+
+# IPSec関連(パケット改ざんを防ぐプロトコル)のパケットを許可
+-A INPUT -p 50 -j ACCEPT
+-A INPUT -p 51 -j ACCEPT
+
+# マルチキャストDNSのパケットを許可
+-A INPUT -p udp --dport 5353 -d 224.0.0.251 -j ACCEPT
+
+# 自サーバが送信したコネクション開設要求に関連するパケット受信と、接続完了後のパケット受信を許可
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# 新規セッションなのにSYNフラグの立っていないパケットは拒否
+-A INPUT -p tcp -m state --state NEW ! --syn -j DROP
+
+# SSH, HTTP, FTP1, FTP2, MySQL
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 22    -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 80    -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 20    -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 21    -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 3306  -j ACCEPT
+
+COMMIT

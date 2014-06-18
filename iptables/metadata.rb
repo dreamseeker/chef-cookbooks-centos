@@ -1,0 +1,5 @@
+name             'iptables'
+maintainer       'TORU KOKUBUN'
+license          'MIT'
+description      'Installs/Configures iptables'
+version          '0.1.0'

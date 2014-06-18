@@ -1,0 +1,15 @@
+[mysqld]
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.sock
+symbolic-links=0
+user=mysql
+character-set-server=<%= node['mysqld']['cnf']['charset'] %>
+skip-character-set-client-handshake
+default-storage-engine=<%= node['mysqld']['cnf']['storage_engine'] %>
+
+[mysqld_safe]
+log-error=/var/log/mysqld.log
+pid-file=/var/run/mysqld/mysqld.pid
+
+[client]
+default-character-set=<%= node['mysqld']['cnf']['charset'] %>

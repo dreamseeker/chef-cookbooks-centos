@@ -1,0 +1,5 @@
+name             'apache'
+maintainer       'TORU KOKUBUN'
+license          'MIT'
+description      'Installs/Configures apache'
+version          '0.1.0'
