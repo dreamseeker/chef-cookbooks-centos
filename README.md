@@ -1,2 +1,0 @@
-chef-cookbook-CentOS-LAMP
-=========================
