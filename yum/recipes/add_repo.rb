@@ -17,7 +17,7 @@ if !File.exists?('/etc/yum.repos.d/remi.repo')
   bash 'add_epel' do
     user 'root'
     code <<-EOC
-      rpm -ivh #{node['yum']['repo']['epel']}
+      rpm -ivh "#{node['yum']['repo']['epel']}"
       sed -i -e "s/enabled *= *1/enabled=0/g" /etc/yum.repos.d/epel.repo
     EOC
   end
@@ -26,7 +26,7 @@ if !File.exists?('/etc/yum.repos.d/remi.repo')
   bash 'add_rpmforge' do
     user 'root'
     code <<-EOC
-      rpm -ivh #{node['yum']['repo']['rpmforge']}
+      rpm -ivh "#{node['yum']['repo']['rpmforge']}"
       sed -i -e "s/enabled *= *1/enabled=0/g" /etc/yum.repos.d/rpmforge.repo
     EOC
   end
@@ -36,7 +36,7 @@ if !File.exists?('/etc/yum.repos.d/remi.repo')
     not_if { File.exists?("/etc/yum.repos.d/remi.repo") }
     user 'root'
     code <<-EOC
-      rpm -ivh #{node['yum']['repo']['remi']}
+      rpm -ivh "#{node['yum']['repo']['remi']}"
       sed -i -e "s/enabled *= *1/enabled=0/g" /etc/yum.repos.d/remi.repo
     EOC
   end
