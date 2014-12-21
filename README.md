@@ -184,7 +184,7 @@ Attributes
   </tr>
 </table>
 
-#### yum::default
+#### yum_cfg::default
 <table>
   <tr>
     <th>Key</th>
@@ -242,14 +242,14 @@ after download / git clone, copy contains cookbooks to your chef repo's site-coo
   },
 
   "run_list": [
-    "recipe[yum::add_repo]",
+    "recipe[yum_cfg::add_repo]",
     "recipe[apache]",
     "recipe[apache::vhosts]",
     "recipe[iptables]",
     "recipe[php]",
     "recipe[mysqld]",
     "recipe[perl_modules]",
-    "recipe[yum::update]"
+    "recipe[yum_cfg::update]"
   ],
 
   "override_attributes": {

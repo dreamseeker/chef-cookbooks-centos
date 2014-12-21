@@ -1,5 +1,5 @@
-name             'yum_repo'
+name             'yum_cfg'
 maintainer       'TORU KOKUBUN'
 license          'MIT'
 description      'Installs/Configures yum repository'
-version          '0.1.0'
+version          '0.1.1'

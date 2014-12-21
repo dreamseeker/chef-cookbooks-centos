@@ -3,6 +3,13 @@ chef cookbooks for CentOS CHANGELOG
 
 This file is used to list changes made in each version of this cookbooks.
 
+0.1.1
+-----
+
+Fixed Error for Chef 12.0.3
+
+- rename yum, yum_cfg
+
 0.1.0
 -----
 
